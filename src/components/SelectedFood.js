@@ -1,4 +1,5 @@
 import Table from "react-bootstrap/Table";
+import FoodItem from "./FoodItem";
 
 export default function SelectedFood() {
     return (
@@ -18,13 +19,7 @@ export default function SelectedFood() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>food.description</td>
-                    <td>food.kcal</td>
-                    <td>food.protein</td>
-                    <td>food.fat</td>
-                    <td>food.carbs</td>
-                </tr>
+                <FoodItem />
                 <tr>
                     <th>Total</th>
                     <th id="total-kcal">sum kcal</th>
