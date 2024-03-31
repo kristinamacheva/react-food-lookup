@@ -14,6 +14,7 @@ const formInitialState = {
 export default function FoodForm() {
     const descriptionInputRef = useRef();
     const [formValues, setFormValues] = useState(formInitialState);
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         descriptionInputRef.current.focus();
@@ -36,12 +37,53 @@ export default function FoodForm() {
 
     const resetFormHandler = () => {
         setFormValues(formInitialState);
+        setErrors({});
     };
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(formValues);
-        resetFormHandler();
+        validateFormData();
+    };
+
+    const validateField = (name, value) => {
+        if (!value) {
+            return `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
+        } else if (typeof value === 'number' && isNaN(value)) {
+            return `${name.charAt(0).toUpperCase() + name.slice(1)} must be a number`;
+        } else if (typeof value === 'number' && value < 0) {
+            return `${name.charAt(0).toUpperCase() + name.slice(1)} must be greater than or equal to zero`;
+        }
+        return '';
+    };
+
+    const blurValidator = (e) => {
+        const { name, value } = e.target;
+        const errorMessage = validateField(name, value);
+        
+        setErrors(state => ({
+            ...state,
+            [name]: errorMessage,
+        }));
+    };
+
+    const validateFormData = () => {
+        const newErrors = {};
+    
+        for (const key in formValues) {
+            const errorMessage = validateField(key, formValues[key]);
+            if (errorMessage) {
+                newErrors[key] = errorMessage;
+            }
+        }
+    
+        setErrors(newErrors);
+    
+        if (Object.keys(newErrors).length === 0) {
+            console.log("Form submitted successfully:", formValues);
+            resetFormHandler();
+        } else {
+            console.log("Form has errors. Cannot submit.");
+        }
     };
 
     return (
@@ -55,8 +97,13 @@ export default function FoodForm() {
                         name="description"
                         value={formValues.description}
                         onChange={changeHandler}
+                        onBlur={blurValidator}
                         placeholder="Enter Description" 
+                        isInvalid={errors.description}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.description}
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formProtein">
                     <Form.Label>Protein</Form.Label>
@@ -64,10 +111,14 @@ export default function FoodForm() {
                         type="number"
                         name="protein"
                         value={formValues.protein}
-                        min="0"
                         onChange={changeHandler}
+                        onBlur={blurValidator}
                         placeholder="Enter Protein"
+                        isInvalid={errors.protein}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.protein}
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formFat">
                     <Form.Label>Fat</Form.Label>
@@ -75,10 +126,14 @@ export default function FoodForm() {
                         type="number"
                         name="fat"
                         value={formValues.fat}
-                        min="0"
                         onChange={changeHandler}
+                        onBlur={blurValidator}
                         placeholder="Enter Fat"
+                        isInvalid={errors.fat}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.fat}
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formCarbs">
                     <Form.Label>Carbs</Form.Label>
@@ -86,10 +141,14 @@ export default function FoodForm() {
                         type="number"
                         name="carbs"
                         value={formValues.carbs}
-                        min="0"
                         onChange={changeHandler}
+                        onBlur={blurValidator}
                         placeholder="Enter Carbs"
+                        isInvalid={errors.carbs}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.carbs}
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formKcal">
                     <Form.Label>Kcal</Form.Label>
@@ -97,12 +156,16 @@ export default function FoodForm() {
                         type="number"
                         name="kcal"
                         value={formValues.kcal}
-                        min="0"
                         onChange={changeHandler}
+                        onBlur={blurValidator}
                         placeholder="Enter Kcal"
+                        isInvalid={errors.kcal}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.kcal}
+                    </Form.Control.Feedback>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" disabled={Object.values(errors).some(x => x)}>
                     Add
                 </Button>
                 <Button variant="secondary" className="ms-2" onClick={resetFormHandler}>
