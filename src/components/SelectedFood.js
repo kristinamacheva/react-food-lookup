@@ -2,7 +2,10 @@ import Table from "react-bootstrap/Table";
 import FoodItem from "./FoodItem";
 import { calculateTotal } from "../helpers";
 
-export default function SelectedFood({ selectedFoodItems }) {
+export default function SelectedFood({ 
+    selectedFoodItems, 
+    onFoodItemRemove 
+}) {
     return (
         <Table striped bordered hover>
             <thead>
@@ -20,8 +23,8 @@ export default function SelectedFood({ selectedFoodItems }) {
                 </tr>
             </thead>
             <tbody>
-                {selectedFoodItems.map((foodItem, index) => (
-                    <FoodItem key={index} food={foodItem} />
+                {selectedFoodItems.map(foodItem => (
+                    <FoodItem key={foodItem.id} food={foodItem} onFoodItemClick={onFoodItemRemove} />
                 ))}
                 <tr>
                     <th>Total</th>

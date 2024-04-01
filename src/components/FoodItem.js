@@ -1,6 +1,13 @@
-export default function FoodItem({ food }) {
+export default function FoodItem({ 
+    food, 
+    onFoodItemClick 
+}) {
+    const itemClickHandler = () => {
+        onFoodItemClick(food);
+    };
+
     return (
-        <tr>
+        <tr onClick={itemClickHandler}>
             <td>{food.description}</td>
             <td>{food.kcal}</td>
             <td>{food.protein}</td>
