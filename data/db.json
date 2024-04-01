@@ -1,0 +1,380 @@
+{
+  "foods": [
+    {
+      "id": "e6342342-4c55-4b13-83a4-4c34b2cf0867",
+      "description": "Spaghetti",
+      "kcal": 221,
+      "protein": 8,
+      "fat": 2.2,
+      "carbs": 43
+    },
+    {
+      "id": "40cb97a0-21d4-41e3-b9fb-27f3bb2458f3",
+      "description": "Steak",
+      "kcal": 250,
+      "protein": 25,
+      "fat": 16,
+      "carbs": 0
+    },
+    {
+      "id": "ac5e1231-6212-4f89-b83d-63e6d9561d13",
+      "description": "Rice",
+      "kcal": 130,
+      "protein": 2,
+      "fat": 0.3,
+      "carbs": 28
+    },
+    {
+      "id": "f78e9b7a-2771-4c7c-b7f4-c141ff6e0ff8",
+      "description": "Tuna Sandwich",
+      "kcal": 300,
+      "protein": 20,
+      "fat": 12,
+      "carbs": 30
+    },
+    {
+      "id": "762eb3d0-69c1-4b40-a8c5-0aa3a30a0c2c",
+      "description": "Green Beans",
+      "kcal": 31,
+      "protein": 2,
+      "fat": 0.2,
+      "carbs": 7
+    },
+    {
+      "id": "fe64392a-9d69-44e4-b396-0534c84c8fae",
+      "description": "Apple",
+      "kcal": 95,
+      "protein": 0.5,
+      "fat": 0.3,
+      "carbs": 25
+    },
+    {
+      "id": "05c1196b-faf0-4cc5-8d5b-947362f79db9",
+      "description": "Yogurt",
+      "kcal": 150,
+      "protein": 10,
+      "fat": 5,
+      "carbs": 12
+    },
+    {
+      "id": "c2993e78-dfc9-4a4d-8cd5-eb0c8475939b",
+      "description": "Pancakes",
+      "kcal": 210,
+      "protein": 5,
+      "fat": 10,
+      "carbs": 25
+    },
+    {
+      "id": "4fc6c9fc-4fc3-46b0-a3de-94b27f8a3835",
+      "description": "Broccoli",
+      "kcal": 55,
+      "protein": 4,
+      "fat": 0.6,
+      "carbs": 11
+    },
+    {
+      "id": "72f8d4b3-82e6-41e8-ae87-3b0dc95ed51b",
+      "description": "Banana",
+      "kcal": 105,
+      "protein": 1.3,
+      "fat": 0.4,
+      "carbs": 27
+    },
+    {
+      "id": "d7e6b891-f9f4-4df7-ba46-03a8a3666b6c",
+      "description": "Cheeseburger",
+      "kcal": 303,
+      "protein": 16,
+      "fat": 20,
+      "carbs": 18
+    },
+    {
+      "id": "50334c05-4b8b-4843-bc8e-c1e76ef90b81",
+      "description": "Fried Chicken",
+      "kcal": 320,
+      "protein": 20,
+      "fat": 15,
+      "carbs": 25
+    },
+    {
+      "id": "fe590d84-1b98-485f-a6b2-87531ec7af97",
+      "description": "Cucumber Salad",
+      "kcal": 45,
+      "protein": 1,
+      "fat": 0.3,
+      "carbs": 10
+    },
+    {
+      "id": "0a84c0f2-7388-4959-bd1e-ee06a7f20eb3",
+      "description": "Turkey Sandwich",
+      "kcal": 280,
+      "protein": 18,
+      "fat": 10,
+      "carbs": 25
+    },
+    {
+      "id": "fb752183-3f82-4dc2-97cf-49837a171e95",
+      "description": "Potato Chips",
+      "kcal": 160,
+      "protein": 2,
+      "fat": 10,
+      "carbs": 15
+    },
+    {
+      "id": "be747bb7-3089-4c5b-8350-122893876ab7",
+      "description": "Grilled Fish",
+      "kcal": 220,
+      "protein": 25,
+      "fat": 8,
+      "carbs": 5
+    },
+    {
+      "id": "82b7780b-5c43-48a5-8501-6c67293d8a24",
+      "description": "Chocolate Cake",
+      "kcal": 350,
+      "protein": 5,
+      "fat": 18,
+      "carbs": 45
+    },
+    {
+      "id": "1b587e02-f80e-48f6-bc0b-4ed777252a09",
+      "description": "Orange Juice",
+      "kcal": 110,
+      "protein": 2,
+      "fat": 0.5,
+      "carbs": 26
+    },
+    {
+      "id": "b928cbbc-2281-4d78-b7e4-9330511f8570",
+      "description": "Egg Salad",
+      "kcal": 200,
+      "protein": 12,
+      "fat": 14,
+      "carbs": 5
+    },
+    {
+      "id": "6fc23429-bce2-457e-97cb-dbf76bb14239",
+      "description": "Milk",
+      "kcal": 103,
+      "protein": 8,
+      "fat": 6,
+      "carbs": 6
+    },
+    {
+      "id": "22b7b3ac-ba3f-48ff-b7ae-d7fb82533e2e",
+      "description": "Fish and Chips",
+      "kcal": 500,
+      "protein": 30,
+      "fat": 25,
+      "carbs": 40
+    },
+    {
+      "id": "3c4c3d64-f5ec-48e4-9b93-02b27e1f7889",
+      "description": "Ice Cream",
+      "kcal": 250,
+      "protein": 5,
+      "fat": 15,
+      "carbs": 25
+    },
+    {
+      "id": "9e38e742-d8d4-4d2a-9a2f-d5b462949a19",
+      "description": "Spinach Salad",
+      "kcal": 70,
+      "protein": 4,
+      "fat": 1,
+      "carbs": 10
+    },
+    {
+      "id": "a6e25f90-606d-404a-a3b4-f7d978354e1f",
+      "description": "Hamburger",
+      "kcal": 320,
+      "protein": 15,
+      "fat": 20,
+      "carbs": 25
+    },
+    {
+      "id": "49871b7e-5fb8-4e14-bca5-f01a25e48c11",
+      "description": "Cauliflower Rice",
+      "kcal": 40,
+      "protein": 2,
+      "fat": 0.5,
+      "carbs": 8
+    },
+    {
+      "id": "e8fe5d3e-49ae-4184-b71b-0dfabe516e51",
+      "description": "Peanut Butter",
+      "kcal": 190,
+      "protein": 8,
+      "fat": 16,
+      "carbs": 6
+    },
+    {
+      "id": "c9d5df42-9b71-4a94-b150-607d757e0bb5",
+      "description": "Muesli",
+      "kcal": 300,
+      "protein": 10,
+      "fat": 12,
+      "carbs": 45
+    },
+    {
+      "id": "9d6df5cf-d507-47fb-a90e-8e703b8ef8e0",
+      "description": "Avocado Toast",
+      "kcal": 220,
+      "protein": 6,
+      "fat": 15,
+      "carbs": 20
+    },
+    {
+      "id": "f170de95-2b25-41d1-bf53-faf0dca9c8c9",
+      "description": "Tomato Soup",
+      "kcal": 150,
+      "protein": 3,
+      "fat": 5,
+      "carbs": 25
+    },
+    {
+      "id": "306ff68f-6be1-4296-bb46-2b1d2bfe5f6e",
+      "description": "Roast Beef",
+      "kcal": 280,
+      "protein": 30,
+      "fat": 18,
+      "carbs": 0
+    },
+    {
+      "id": "654c07d2-191f-49d3-85a6-18637b4d4404",
+      "description": "Blueberry Muffin",
+      "kcal": 250,
+      "protein": 5,
+      "fat": 12,
+      "carbs": 30
+    },
+    {
+      "id": "1dcf09e4-ef6d-4620-b5e9-98b7333c0565",
+      "description": "Cheese",
+      "kcal": 110,
+      "protein": 7,
+      "fat": 9,
+      "carbs": 1
+    },
+    {
+      "id": "0bb9f3e5-0c22-4d2c-96cb-d7f498c0919e",
+      "description": "Ham Sandwich",
+      "kcal": 320,
+      "protein": 20,
+      "fat": 15,
+      "carbs": 25
+    },
+    {
+      "id": "1a7c5c5d-25aa-484a-a74f-5c41f8f8cf7f",
+      "description": "Sushi",
+      "kcal": 300,
+      "protein": 20,
+      "fat": 10,
+      "carbs": 35
+    },
+    {
+      "id": "d180b180-6053-4987-b61d-ff14f6f314b0",
+      "description": "Grapes",
+      "kcal": 60,
+      "protein": 0.6,
+      "fat": 0.4,
+      "carbs": 15
+    },
+    {
+      "id": "62f39b28-5aa1-42b4-b45f-18676f6d8a24",
+      "description": "Omelette",
+      "kcal": 220,
+      "protein": 15,
+      "fat": 16,
+      "carbs": 2
+    },
+    {
+      "id": "61e748ed-f84e-4b57-abe7-ee527d56e2a7",
+      "description": "Raspberry Smoothie",
+      "kcal": 150,
+      "protein": 5,
+      "fat": 3,
+      "carbs": 25
+    },
+    {
+      "id": "c8a5b289-fd34-4e84-822b-b7fe8d1db0df",
+      "description": "Quinoa Salad",
+      "kcal": 200,
+      "protein": 8,
+      "fat": 6,
+      "carbs": 30
+    },
+    {
+      "id": "ebabf7f3-4d10-41c1-8dcf-f12610c35647",
+      "description": "Lemon Chicken",
+      "kcal": 280,
+      "protein": 30,
+      "fat": 12,
+      "carbs": 15
+    },
+    {
+      "id": "7e49a90c-b14a-40a6-bbd3-7d5df780a33f",
+      "description": "Carrot Soup",
+      "kcal": 120,
+      "protein": 3,
+      "fat": 5,
+      "carbs": 20
+    },
+    {
+      "id": "4722966b-d679-49ef-b0e1-cf221eef2f42",
+      "description": "Pulled Pork",
+      "kcal": 300,
+      "protein": 25,
+      "fat": 15,
+      "carbs": 10
+    },
+    {
+      "id": "7e8f32cd-4e05-40d1-963d-0596477cbf4d",
+      "description": "Beef Stir Fry",
+      "kcal": 350,
+      "protein": 25,
+      "fat": 18,
+      "carbs": 20
+    },
+    {
+      "id": "d203ac69-ea5b-4a41-81b1-94035bbce570",
+      "description": "Pineapple",
+      "kcal": 80,
+      "protein": 0.5,
+      "fat": 0.2,
+      "carbs": 20
+    },
+    {
+      "id": "303cd40b-af43-4527-a7f7-2a448f4ee154",
+      "description": "Lamb Curry",
+      "kcal": 400,
+      "protein": 30,
+      "fat": 20,
+      "carbs": 25
+    },
+    {
+      "id": "0c00e58f-0a07-4a9d-bb1c-7c336201ce4f",
+      "description": "Shrimp Pasta",
+      "kcal": 300,
+      "protein": 20,
+      "fat": 12,
+      "carbs": 25
+    },
+    {
+      "id": "5ae73a2d-90b1-4999-803b-0462d6db3e2f",
+      "description": "Lentil Soup",
+      "kcal": 180,
+      "protein": 10,
+      "fat": 2,
+      "carbs": 30
+    },
+    {
+      "id": "00e26ad4-30a0-4f4a-9818-d55a3a390e7e",
+      "description": "Tofu Stir Fry",
+      "kcal": 250,
+      "protein": 20,
+      "fat": 12,
+      "carbs": 15
+    }
+  ]
+}
