@@ -2,6 +2,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./FoodForm.css";
 import { useState, useRef, useEffect } from 'react';
+import * as foodService from "../services/foodService";
+import { v4 as uuidv4 } from 'uuid';
 
 const formInitialState = {
     description: '',
@@ -80,9 +82,19 @@ export default function FoodForm() {
     
         if (Object.keys(newErrors).length === 0) {
             console.log("Form submitted successfully:", formValues);
+            createFoodItem();
             resetFormHandler();
         } else {
             console.log("Form has errors. Cannot submit.");
+        }
+    };
+
+    const createFoodItem = async () => {
+        try {
+            const newItem = await foodService.create({ id: uuidv4(), ...formValues });
+            console.log("Food item created successfully:", newItem);
+        } catch (error) {
+            console.error("Error creating food item:", error);
         }
     };
 
