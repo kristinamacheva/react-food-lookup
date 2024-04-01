@@ -1,10 +1,14 @@
-import { useState } from "react";
 import { Table, InputGroup, FormControl, Button } from "react-bootstrap";
 import FoodItem from "./FoodItem";
+import * as foodService from "../services/foodService";
+import { useEffect, useState } from "react";
 
-export default function FoodSearch() {
+export default function FoodSearch({
+    onFoodItemAdd
+}) {
     const [searchValue, setSearchValue] = useState('');
     const [showRemoveIcon, setShowRemoveIcon] = useState(false);
+    const [searchedFoods, setSearchedFoods] = useState([]);
 
     const handleSearchChange = (event) => {
         const value = event.target.value;
@@ -16,6 +20,12 @@ export default function FoodSearch() {
         setSearchValue('');
         setShowRemoveIcon(false);
     };
+
+    useEffect(() => {
+        foodService.getAll()
+            .then(result => setSearchedFoods(result))
+            .catch(err => console.log(err))
+    }, []);
 
     return (
         <Table striped bordered hover>
@@ -49,7 +59,9 @@ export default function FoodSearch() {
                 </tr>
             </thead>
             <tbody>
-                {/* <FoodItem /> */}
+                {searchedFoods.map(foodItem => (
+                    <FoodItem key={foodItem.id} food={foodItem} onFoodItemClick={onFoodItemAdd} />
+                ))}
             </tbody>
         </Table>
     );
