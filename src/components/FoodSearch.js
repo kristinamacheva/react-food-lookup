@@ -14,18 +14,27 @@ export default function FoodSearch({
         const value = event.target.value;
         setSearchValue(value);
         setShowRemoveIcon(value !== '');
+    
+        if (value.length >= 3) {
+            foodService.searchAll(value)
+                .then(result => setSearchedFoods(result))
+                .catch(err => console.log(err));
+        } else {
+            setSearchedFoods([]);
+        }
     };
 
     const clearSearch = () => {
         setSearchValue('');
+        setSearchedFoods([]);
         setShowRemoveIcon(false);
     };
 
-    useEffect(() => {
-        foodService.getAll()
-            .then(result => setSearchedFoods(result))
-            .catch(err => console.log(err))
-    }, []);
+    // useEffect(() => {
+    //     foodService.getAll()
+    //         .then(result => setSearchedFoods(result))
+    //         .catch(err => console.log(err))
+    // }, []);
 
     return (
         <Table striped bordered hover>

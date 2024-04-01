@@ -9,6 +9,14 @@ export const getAll = async () => {
     return data;
 };
 
+export const searchAll = async (query) => {
+    const response = await fetch(`${baseUrl}?q=${query}`);
+    const result = await response.json();
+
+    const data = Object.values(result);
+    return result;
+};
+
 export const create = async (data) => {
     const body = {
         id: data.id,
