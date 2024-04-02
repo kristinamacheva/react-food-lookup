@@ -12,11 +12,13 @@ export default function FoodSearch({
 
     const handleSearchChange = (event) => {
         const value = event.target.value;
+        const trimmedValue = value.trim(); 
+    
         setSearchValue(value);
         setShowRemoveIcon(value !== '');
     
-        if (value.length >= 3) {
-            foodService.searchAll(value)
+        if (trimmedValue.length >= 3) {
+            foodService.searchAll(trimmedValue)
                 .then(result => setSearchedFoods(result))
                 .catch(err => console.error('Error searching foods:', err));
         } else {
