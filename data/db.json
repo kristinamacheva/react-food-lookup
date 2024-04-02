@@ -1215,6 +1215,30 @@
       "protein": 22,
       "fat": 15,
       "carbs": 20
+    },
+    {
+      "id": "1a16e289-33ca-4c93-9f18-ffd19555227a",
+      "description": "Frutti di Mare",
+      "kcal": 250,
+      "protein": 20,
+      "fat": 10,
+      "carbs": 15
+    },
+    {
+      "id": "6fe777ac-7f54-4bb3-8e9d-66f9ef416da2",
+      "description": "Waffles",
+      "kcal": 300,
+      "protein": 5,
+      "fat": 15,
+      "carbs": 35
+    },
+    {
+      "id": "1be93b93-91cd-440e-81a1-96b9c9cead46",
+      "description": "Rice",
+      "kcal": 130,
+      "protein": 2.5,
+      "fat": 0.3,
+      "carbs": 28
     }
   ]
 }
