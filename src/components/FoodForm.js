@@ -45,10 +45,8 @@ export default function FoodForm() {
     };
 
     const validateField = (name, value) => {
-        if (!value) {
+        if ((typeof value === 'string' && !value.trim()) || (typeof value === 'number' && isNaN(value))) {
             return `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
-        } else if (typeof value === 'number' && isNaN(value)) {
-            return `${name.charAt(0).toUpperCase() + name.slice(1)} must be a number`;
         } else if (typeof value === 'number' && value < 0) {
             return `${name.charAt(0).toUpperCase() + name.slice(1)} must be greater than or equal to zero`;
         }
@@ -88,7 +86,12 @@ export default function FoodForm() {
 
     const createFoodItem = async () => {
         try {
-            const newItem = await foodService.create({ id: uuidv4(), ...formValues });
+            const trimmedDescription = formValues.description.trim();
+            const newItem = await foodService.create({ 
+                id: uuidv4(), 
+                ...formValues, 
+                description: trimmedDescription,
+            });
             console.log("Food item created successfully:", newItem);
             navigate('/');
         } catch (error) {
