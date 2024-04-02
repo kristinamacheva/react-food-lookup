@@ -1,7 +1,7 @@
 import { Table, InputGroup, FormControl, Button } from "react-bootstrap";
 import FoodItem from "./FoodItem";
 import * as foodService from "../services/foodService";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function FoodSearch({
     onFoodItemAdd
@@ -18,7 +18,7 @@ export default function FoodSearch({
         if (value.length >= 3) {
             foodService.searchAll(value)
                 .then(result => setSearchedFoods(result))
-                .catch(err => console.log(err));
+                .catch(err => console.error('Error searching foods:', err));
         } else {
             setSearchedFoods([]);
         }
@@ -29,12 +29,6 @@ export default function FoodSearch({
         setSearchedFoods([]);
         setShowRemoveIcon(false);
     };
-
-    // useEffect(() => {
-    //     foodService.getAll()
-    //         .then(result => setSearchedFoods(result))
-    //         .catch(err => console.log(err))
-    // }, []);
 
     return (
         <Table striped bordered hover>
