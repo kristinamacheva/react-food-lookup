@@ -25,6 +25,18 @@ export const searchAll = async (query) => {
     }
 };
 
+export const searchLimit = async (query) => {
+    try {
+        const response = await fetch(`${baseUrl}?description_like=${query}&_limit=50`);
+        const result = await response.json();
+
+        const data = Object.values(result);
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};
+
 export const create = async (data) => {
     try {
         const body = {

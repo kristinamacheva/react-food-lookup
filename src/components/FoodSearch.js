@@ -18,7 +18,7 @@ export default function FoodSearch({
         setShowRemoveIcon(value !== '');
     
         if (trimmedValue.length >= 3) {
-            foodService.searchAll(trimmedValue)
+            foodService.searchLimit(trimmedValue)
                 .then(result => setSearchedFoods(result))
                 .catch(err => console.error('Error searching foods:', err));
         } else {
