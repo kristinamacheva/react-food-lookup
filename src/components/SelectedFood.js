@@ -1,11 +1,14 @@
 import Table from "react-bootstrap/Table";
 import FoodItem from "./FoodItem";
 import { calculateTotal } from "../helpers";
+import { useContext } from 'react';
+import SelectedFoodContext from "../contexts/SelectedFoodContext";
 
 export default function SelectedFood({ 
-    selectedFoodItems, 
     onFoodItemRemove 
 }) {
+    const { selectedFoodItems } = useContext(SelectedFoodContext);
+
     return (
         <Table striped bordered hover>
             <thead>

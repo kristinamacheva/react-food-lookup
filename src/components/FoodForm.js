@@ -1,9 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./FoodForm.css";
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import * as foodService from "../services/foodService";
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
 
 const formInitialState = {
     description: '',
@@ -14,13 +15,9 @@ const formInitialState = {
 };
 
 export default function FoodForm() {
-    const descriptionInputRef = useRef();
     const [formValues, setFormValues] = useState(formInitialState);
     const [errors, setErrors] = useState({});
-
-    useEffect(() => {
-        descriptionInputRef.current.focus();
-    }, []);
+    const navigate = useNavigate();
 
     const changeHandler = (e) => {
         let value = '';
@@ -93,9 +90,15 @@ export default function FoodForm() {
         try {
             const newItem = await foodService.create({ id: uuidv4(), ...formValues });
             console.log("Food item created successfully:", newItem);
+            navigate('/');
         } catch (error) {
             console.error("Error creating food item:", error);
         }
+    };
+
+    const cancelFormHandler = () => {
+        resetFormHandler();
+        navigate('/');
     };
 
     return (
@@ -104,7 +107,6 @@ export default function FoodForm() {
                 <Form.Group className="mb-3" controlId="formDescription">
                     <Form.Label>Description</Form.Label>
                     <Form.Control 
-                        ref={descriptionInputRef}
                         type="text" 
                         name="description"
                         value={formValues.description}
@@ -180,7 +182,7 @@ export default function FoodForm() {
                 <Button variant="primary" type="submit" disabled={Object.values(errors).some(x => x)}>
                     Add
                 </Button>
-                <Button variant="secondary" className="ms-2" onClick={resetFormHandler}>
+                <Button variant="secondary" className="ms-2" onClick={cancelFormHandler}>
                     Cancel
                 </Button>
             </Form>

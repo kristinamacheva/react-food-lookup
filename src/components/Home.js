@@ -1,10 +1,12 @@
 import { Button,  Container } from "react-bootstrap";
 import FoodSearch from "./FoodSearch";
 import SelectedFood from "./SelectedFood";
-import { useState } from "react";
+import { useContext } from 'react';
+import SelectedFoodContext from "../contexts/SelectedFoodContext";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-    const [selectedFoodItems, setSelectedFoodItems] = useState([]);
+    const { selectedFoodItems, setSelectedFoodItems } = useContext(SelectedFoodContext);
     
     const foodItemAddHandler = (food) => {
         console.log('Food clicked:', food);
@@ -32,7 +34,6 @@ export default function Home() {
     return (
         <Container>
             <SelectedFood 
-                selectedFoodItems={selectedFoodItems} 
                 onFoodItemRemove={foodItemRemoveHandler} 
             />
             
@@ -41,7 +42,7 @@ export default function Home() {
             />
 
             <div className="d-flex justify-content-end mt-3">
-                <Button variant="primary" type="submit">Add Food</Button>
+                <Button as={Link} to="/add" variant="primary">Add Food</Button>
             </div>
         </Container>
     );
