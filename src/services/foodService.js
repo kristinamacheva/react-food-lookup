@@ -5,16 +5,16 @@ export const getAll = async () => {
     const result = await response.json();
 
     const data = Object.values(result);
-
     return data;
 };
 
 export const searchAll = async (query) => {
-    const response = await fetch(`${baseUrl}?q=${query}`);
+    // const response = await fetch(`${baseUrl}?q=${query}`);
+    const response = await fetch(`${baseUrl}?description_like=${query}`);
     const result = await response.json();
 
     const data = Object.values(result);
-    return result;
+    return data;
 };
 
 export const create = async (data) => {
