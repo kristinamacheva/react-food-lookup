@@ -20,17 +20,9 @@ export default function FoodForm() {
     const navigate = useNavigate();
 
     const changeHandler = (e) => {
-        let value = '';
-
-        if (e.target.type === 'number') {
-            value = Number(e.target.value);
-        } else {
-            value = e.target.value;
-        }
-
         setFormValues(state => ({
             ...state,
-            [e.target.name]: value,
+            [e.target.name]: e.target.value,
         }));
     };
 
@@ -45,9 +37,11 @@ export default function FoodForm() {
     };
 
     const validateField = (name, value) => {
-        if ((typeof value === 'string' && !value.trim()) || (typeof value === 'number' && isNaN(value))) {
+        if (!value.trim()) {
             return `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
-        } else if (typeof value === 'number' && value < 0) {
+        } else if (name !== 'description' && isNaN(value)) {
+            return `${name.charAt(0).toUpperCase() + name.slice(1)} must be a number`;
+        } else if (name !== 'description' && value < 0) {
             return `${name.charAt(0).toUpperCase() + name.slice(1)} must be greater than or equal to zero`;
         }
         return '';
@@ -78,7 +72,6 @@ export default function FoodForm() {
         if (Object.keys(newErrors).length === 0) {
             console.log("Form submitted successfully:", formValues);
             createFoodItem();
-            resetFormHandler();
         } else {
             console.log("Form has errors. Cannot submit.");
         }
@@ -86,13 +79,16 @@ export default function FoodForm() {
 
     const createFoodItem = async () => {
         try {
-            const trimmedDescription = formValues.description.trim();
             const newItem = await foodService.create({ 
                 id: uuidv4(), 
-                ...formValues, 
-                description: trimmedDescription,
+                description: formValues.description.trim(),
+                protein: parseFloat(formValues.protein),
+                fat: parseFloat(formValues.fat),
+                carbs: parseFloat(formValues.carbs),
+                kcal: parseFloat(formValues.kcal),
             });
             console.log("Food item created successfully:", newItem);
+            resetFormHandler();
             navigate('/');
         } catch (error) {
             console.error("Error creating food item:", error);
@@ -116,7 +112,7 @@ export default function FoodForm() {
                         onChange={changeHandler}
                         onBlur={blurValidator}
                         placeholder="Enter Description" 
-                        isInvalid={errors.description}
+                        isInvalid={!!errors.description}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.description}
@@ -131,7 +127,7 @@ export default function FoodForm() {
                         onChange={changeHandler}
                         onBlur={blurValidator}
                         placeholder="Enter Protein"
-                        isInvalid={errors.protein}
+                        isInvalid={!!errors.protein}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.protein}
@@ -146,7 +142,7 @@ export default function FoodForm() {
                         onChange={changeHandler}
                         onBlur={blurValidator}
                         placeholder="Enter Fat"
-                        isInvalid={errors.fat}
+                        isInvalid={!!errors.fat}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.fat}
@@ -161,7 +157,7 @@ export default function FoodForm() {
                         onChange={changeHandler}
                         onBlur={blurValidator}
                         placeholder="Enter Carbs"
-                        isInvalid={errors.carbs}
+                        isInvalid={!!errors.carbs}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.carbs}
@@ -176,7 +172,7 @@ export default function FoodForm() {
                         onChange={changeHandler}
                         onBlur={blurValidator}
                         placeholder="Enter Kcal"
-                        isInvalid={errors.kcal}
+                        isInvalid={!!errors.kcal}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.kcal}
