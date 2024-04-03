@@ -14,7 +14,6 @@ export const getAll = async () => {
 
 export const searchAll = async (query) => {
     try {
-        // const response = await fetch(`${baseUrl}?q=${query}`);
         const response = await fetch(`${baseUrl}?description_like=${query}`);
         const result = await response.json();
 

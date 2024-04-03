@@ -9,8 +9,6 @@ export default function Home() {
     const { selectedFoodItems, setSelectedFoodItems } = useContext(SelectedFoodContext);
     
     const foodItemAddHandler = (food) => {
-        console.log('Food clicked:', food);
-
         const isAlreadyAdded = selectedFoodItems.some(item => item.id === food.id);
 
         if (!isAlreadyAdded) {
@@ -24,8 +22,6 @@ export default function Home() {
     }
 
     const foodItemRemoveHandler = (foodToRemove) => {
-        console.log('Food removed:', foodToRemove);
-        
         setSelectedFoodItems(state => (
             state.filter(food => food !== foodToRemove)
         ));

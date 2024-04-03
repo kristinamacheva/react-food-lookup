@@ -1,4 +1,3 @@
-import "./App.css";
 import FoodForm from "./components/FoodForm";
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
